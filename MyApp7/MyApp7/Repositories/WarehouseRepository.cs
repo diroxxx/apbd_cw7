@@ -1,4 +1,5 @@
 ﻿using System.Data;
+using System.Data.Common;
 using Microsoft.Data.SqlClient;
 using MyApp7.DTOs;
 
@@ -160,5 +161,34 @@ public class WarehouseRepository: IWarehouseRepository
         int? idOrder = await command.ExecuteScalarAsync() as int?;
         int result = idOrder ?? 0;
         return result;
+    }
+
+    public async Task UseProcedure(ProductOfWarehouse product)
+    {
+        // using SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("Default"));
+        // using SqlCommand command = new SqlCommand();
+        // command.Connection = connection;
+        //
+        // await connection.OpenAsync();
+        //
+        // DbTransaction transaction = await connection.BeginTransactionAsync();
+        // command.Transaction = (SqlTransaction)transaction;
+        //
+        // try
+        // {
+        //     command.Parameters.AddWithValue("@IdProduct", item.IdProduct);
+        //     command.Parameters.AddWithValue("@IdWarehouse", item.IdWarehouse);
+        //     command.Parameters.AddWithValue("@Amount", item.Amount);
+        //     command.Parameters.AddWithValue("@CreatedAt", item.CreatedAt);
+        //     
+        //     await command.ExecuteNonQueryAsync();
+        //
+        //     await transaction.CommitAsync();
+        // }
+        // catch (Exception e)
+        // {
+        //     await transaction.RollbackAsync();
+        //     throw;
+        // }
     }
 }

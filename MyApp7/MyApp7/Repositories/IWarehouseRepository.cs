@@ -13,4 +13,6 @@ public interface IWarehouseRepository
     Task UpdateFullfilledAtOrder(int idProduct);
 
     Task<int> FindOrderByIdProduct(int idProduct);
+
+    Task UseProcedure(ProductOfWarehouse product);
 }
